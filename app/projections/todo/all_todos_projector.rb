@@ -5,7 +5,7 @@ module Todo
     projector_name :all_todos
 
     table :todos do
-      column :todo_id, 'UUID NOT NULL'
+      column :id, 'UUID NOT NULL'
       column :title, :text
       column :created_at, DateTime
       column :updated_at, DateTime
@@ -13,7 +13,7 @@ module Todo
 
     project TodoAdded do |event|
       table(:todos).insert(
-        todo_id: event.aggregate_id,
+        id: event.aggregate_id,
         title: event.title,
         created_at: event.created_at,
         updated_at: event.created_at
