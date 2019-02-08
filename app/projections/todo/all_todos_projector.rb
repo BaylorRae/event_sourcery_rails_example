@@ -21,7 +21,7 @@ module Todo
     end
 
     project TodoTitleChanged do |event|
-      table(:todos).where(todo_id: event.aggregate_id)
+      table(:todos).where(id: event.aggregate_id)
         .update(title: event.title, updated_at: event.created_at)
     end
   end
