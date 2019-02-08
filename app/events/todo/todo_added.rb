@@ -1,5 +1,7 @@
 module Todo
   class TodoAdded < EventSourcery::Event
-    attr_accessor :title
+    def title
+      body.fetch('title')
+    end
   end
 end
