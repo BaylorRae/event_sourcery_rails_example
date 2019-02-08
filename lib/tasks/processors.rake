@@ -12,6 +12,10 @@ namespace :processors do
     processors(EventSourceryRails.projections_database, EventSourceryRails.tracker).each(&:setup)
   end
 
+  task reset: :environment do
+    processors(EventSourceryRails.projections_database, EventSourceryRails.tracker).each(&:reset)
+  end
+
   task run: :environment do
     puts "Starting Event Stream Processors"
 
