@@ -3,14 +3,14 @@ class TodosController < ApplicationController
   def create
     command = AddTodo.build(title: todo_params[:title],
                             aggregate_id: SecureRandom.uuid)
-    command_handler.add(command)
+    command_handler.call(command)
     head :created
   end
 
   def update
     command = UpdateTitle.build(title: todo_params[:title],
                                 aggregate_id: params[:id])
-    command_handler.update_title(command)
+    command_handler.call(command)
     head :ok
   end
 

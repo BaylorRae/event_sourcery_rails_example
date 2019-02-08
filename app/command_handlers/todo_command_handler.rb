@@ -1,17 +1,21 @@
+require './lib/command_handler'
+
 class TodoCommandHandler
+  include CommandHandler
+
   attr_reader :repository
 
   def initialize(repository: EventSourceryRails.repository)
     @repository = repository
   end
 
-  def add(command)
+  on AddTodo do |command|
     with_aggregate(aggregate_id: command.aggregate_id) do |aggregate|
       aggregate.add(command)
     end
   end
 
-  def update_title(command)
+  on UpdateTitle do |command|
     with_aggregate(aggregate_id: command.aggregate_id) do |aggregate|
       aggregate.change_title(command)
     end
