@@ -14,6 +14,9 @@ gem 'puma', '~> 3.11'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'event_sourcery', '~> 0.22.0'
+gem 'event_sourcery-postgres', '~> 0.8.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
