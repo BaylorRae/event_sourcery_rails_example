@@ -15,7 +15,7 @@ gem 'puma', '~> 3.11'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'event_sourcery', '~> 0.22.0'
-gem 'event_sourcery-postgres', '~> 0.8.0'
+gem 'event_sourcery-postgres', github: 'baylorrae/event_sourcery-postgres', branch: 'postgres-11'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
