@@ -1,5 +1,9 @@
 class TodosController < ApplicationController
 
+  def index
+    render json: TodoRecord.order(created_at: :desc)
+  end
+
   def create
     command = Todo::AddTodo.build(title: todo_params[:title],
                                   aggregate_id: SecureRandom.uuid)
