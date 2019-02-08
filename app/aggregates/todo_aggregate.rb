@@ -1,9 +1,9 @@
-class Todo
+class TodoAggregate
   include EventSourcery::AggregateRoot
 
   def add(command)
     apply_event(
-      TodoAdded,
+      Todo::TodoAdded,
       aggregate_id: command.aggregate_id,
       body: { title: command.title }
     )
@@ -11,18 +11,18 @@ class Todo
 
   def change_title(command)
     apply_event(
-      TodoTitleChanged,
+      Todo::TodoTitleChanged,
       aggregate_id: command.aggregate_id,
       body: { title: command.title }
     )
   end
 
-  apply TodoAdded do |event|
+  apply Todo::TodoAdded do |event|
     @aggregate_id = event.aggregate_id
     @title = event.body.fetch('title')
   end
 
-  apply TodoTitleChanged do |event|
+  apply Todo::TodoTitleChanged do |event|
     @aggregate_id = event.aggregate_id
     @title = event.title
   end

@@ -88,4 +88,4 @@ end
 ## Todo
 
 - [ ] add projections
-- [ ] look into consolidating events and commands to a namespace.
+- [x] look into consolidating events and commands to a namespace.
