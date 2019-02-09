@@ -40,7 +40,7 @@ module EventSourceryRails
 end
 
 EventSourceryRails.configure do |config|
-  config.database_url = ENV['DATABASE_URL'] || "postgres://127.0.0.1:5433/event_sourcery_rails_#{Rails.env}"
+  config.database_url = ENV['DATABASE_URL'] || "postgres://127.0.0.1:5432/event_sourcery_rails_#{Rails.env}"
 end
 
 EventSourcery::Postgres.configure do |config|
