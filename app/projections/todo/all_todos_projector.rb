@@ -5,10 +5,11 @@ module Todo
     projector_name :all_todos
 
     table :todos do
-      column :id, 'UUID NOT NULL'
+      primary_key :id, 'UUID NOT NULL', default: Sequel.lit('uuid_generate_v4()')
       column :title, :text
       column :created_at, DateTime
       column :updated_at, DateTime
+      index :id, unique: true
     end
 
     project TodoAdded do |event|
